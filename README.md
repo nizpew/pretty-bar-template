@@ -12,8 +12,15 @@ template for Instalatiion part of readme:
 ```bash
 git clone YOUR_REPO_LINK
 cd ; cd YOURREPONAME
+
+#nesse git do template especifico,
+cd pretty-bar-template
+ 
 chmod +x ./install-with-pretty-bar.sh
-#if necessary for the script, 
-sudo ./install-with-pretty-bar.sh
+#if necessary for the script,
+
+./install-with-pretty-bar.sh
+#agora é só alterar o ./specificscript.sh como desejar
+
 ```
 
