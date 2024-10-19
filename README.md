@@ -21,7 +21,7 @@ cd pretty-bar-template
 chmod +x ./install-with-pretty-bar.sh
 #if necessary for the script,
 
-./install-with-pretty-bar.sh
+sudo ./install-with-pretty-bar.sh
 #agora é só alterar o ./specificscript.sh como desejar
 
 ```
