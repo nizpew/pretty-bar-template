@@ -3,7 +3,7 @@ const fs = require('fs');
 const ProgressBar = require('cli-progress');
 
 // Path to your shell script
-const shellScript = './taverngptinstallscript.sh'; // Adjust this if needed
+const shellScript = './specificscript.sh'; // HERE YOU CHANGE THE SPECIFIC SCRIPT TO INSTALL EVERYTHING
 const errorLogPath = 'errorlog.txt'; // Path to save error logs
 
 let spinnerIndex = 0;
