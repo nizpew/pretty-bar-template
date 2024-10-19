@@ -26,3 +26,7 @@ chmod +x ./install-with-pretty-bar.sh
 
 ```
 
+
+
+TODOS
+arrumar bug da ~/marker_file.txt
