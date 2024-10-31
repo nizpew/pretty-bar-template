@@ -12,8 +12,8 @@ template for Instalatiion part of readme:
 
 ## How to install
 ```bash
-git clone YOUR_REPO_LINK
-cd ; cd YOURREPONAME
+git clone https://github.com/nizpew/pretty-bar-template.git
+cd ; cd pretty-bar-template
 
 #nesse git do template especifico,
 cd pretty-bar-template
