@@ -41,6 +41,13 @@ sudo apt install -y nodejs npm
 npm install cli-progress
 
 ```
+## Demo
+
+
+https://github.com/user-attachments/assets/d8503d6d-203c-444e-9606-58ebe510339d
+
+
+
 
 
 TODOS
