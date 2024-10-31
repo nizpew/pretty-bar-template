@@ -16,7 +16,6 @@ git clone https://github.com/nizpew/pretty-bar-template.git
 cd ; cd pretty-bar-template
 
 #nesse git do template especifico,
-cd pretty-bar-template
  
 chmod +x ./install-with-pretty-bar.sh
 #if necessary for the script,
