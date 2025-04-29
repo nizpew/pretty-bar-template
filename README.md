@@ -49,4 +49,5 @@ https://github.com/user-attachments/assets/d8503d6d-203c-444e-9606-58ebe510339d
 
 
 TODOS
-arrumar bug da ~/marker_file.txt
+rm ~/marker_file.txt
+add time_to_end saving to predict future loadings
