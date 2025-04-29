@@ -3,12 +3,29 @@ const fs = require('fs');
 const ProgressBar = require('cli-progress');
 
 // Path to your shell script
-const shellScript = './specificscript.sh'; // HERE YOU CHANGE THE SPECIFIC SCRIPT TO INSTALL EVERYTHING
+const shellScript = './specificscript.sh'; // Change this to your specific script
 const errorLogPath = 'errorlog.txt'; // Path to save error logs
+const executionTimePath = 'execution_time.txt'; // Path to save execution time
 
 let spinnerIndex = 0;
 const spinnerChars = ['-', '\\', '|', '/'];
 let spinnerInterval;
+
+// Function to read execution time from the file
+const getExecutionTime = () => {
+  try {
+    if (fs.existsSync(executionTimePath)) {
+      const data = fs.readFileSync(executionTimePath, 'utf8');
+      const match = data.match(/Execution time: (\d+(\.\d+)?) seconds/);
+      if (match) {
+        return parseFloat(match[1]) * 1000; // Convert seconds to milliseconds
+      }
+    }
+  } catch (err) {
+    console.error('Error reading execution time:', err);
+  }
+  return 10000; // Default to 10 seconds if file doesn't exist or is empty
+};
 
 const startSpinner = () => {
   spinnerInterval = setInterval(() => {
@@ -57,13 +74,20 @@ const runShellScript = () => {
 
     console.log(`\nScript finished with exit code ${code} in ${(duration / 1000).toFixed(2)} seconds`);
     
+    // Write the execution time to a file
+    const executionTimeMessage = `Execution time: ${(duration / 1000).toFixed(2)} seconds\n`;
+    fs.writeFileSync(executionTimePath, executionTimeMessage);
+
     // Errors are logged in the errorLogPath but not displayed
   });
+
+  // Get the maximum duration for the loading bar
+  const maxDuration = getExecutionTime();
 
   // Update the loading bar based on elapsed time
   const interval = setInterval(() => {
     const elapsedTime = Date.now() - startTime;
-    const progress = Math.min((elapsedTime / 10000) * 100, 100); // Adjust max duration as needed
+    const progress = Math.min((elapsedTime / maxDuration) * 100, 100); // Use maxDuration
 
     bar.update(progress);
 
@@ -75,4 +99,3 @@ const runShellScript = () => {
 
 // Run the shell script
 runShellScript();
-
