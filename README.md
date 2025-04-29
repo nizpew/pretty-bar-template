@@ -20,6 +20,8 @@ cd ; cd pretty-bar-template
 chmod +x ./install-with-pretty-bar.sh
 #if necessary for the script,
 
+npm install cli-progress
+
 sudo ./install-with-pretty-bar.sh
 #agora é só alterar o ./specificscript.sh como desejar
 
